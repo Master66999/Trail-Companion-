@@ -2,7 +2,7 @@
 title: Trail Companion — An Offline PWA for Nature Exploration Powered by Open-Weight AI
 published: false
 tags: devchallenge, hf26challenge, opensource, webdev
-cover_image: https://raw.githubusercontent.com/Master66999/apiintegration/main/icons/icon.svg
+cover_image: https://raw.githubusercontent.com/Master66999/Trail-Companion-/main/icons/icon.svg
 ---
 
 *This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass](https://dev.to/challenges/hacktoberfest-week1-2026-10-05)*
@@ -28,7 +28,7 @@ Trail Companion turns your phone into an **autonomous on-device field scanner**:
 
 ## Demo
 
-- **Live Application / Local URL**: `http://localhost:5173/#home`
+- **Live Deployed App**: [https://trail-companion.onrender.com](https://trail-companion.onrender.com)
 - **PWA Capabilities**: Installable directly to your home screen on iOS and Android. Open it once on Wi-Fi to cache the weights (~87 MB), and it works in **Airplane Mode** anywhere on Earth.
 - **Instant Sample Deck**: Includes 6 built-in field test photographs (*Maple Leaf*, *Northern Cardinal*, *Fly Agaric*, *Monarch Butterfly*, *Sunflower*, and an *Indoor Desk*) so you can test the classification and anti-screen rejection right from your desk before heading outside.
 
@@ -36,7 +36,9 @@ Trail Companion turns your phone into an **autonomous on-device field scanner**:
 
 ## Code
 
-{% github Master66999/apiintegration %}
+{% github Master66999/Trail-Companion- %}
+
+- **GitHub Repository**: [https://github.com/Master66999/Trail-Companion-](https://github.com/Master66999/Trail-Companion-)
 
 The entire codebase is open-source under the MIT License.
 
