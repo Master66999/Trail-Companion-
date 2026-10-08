@@ -96,7 +96,7 @@ This week's challenge asks: *Where does an open-based approach work better than 
 
 This project was built collaboratively with an AI coding agent through pair-programming: from architecting the build-time embedding pipeline and writing headless accuracy checks in Node.js, to engineering the white & emerald green design system, synthesis of Web Audio bird whistles, and browser subagent end-to-end verification.
 
-{% agent_session 0f124455-ba70-483c-99f3-abd6c2d03ac0 %}
+{% agent_session trail-companion-touch-grass-open-source-ai-agent-session-ajnhzn %}
 
 ---
 
