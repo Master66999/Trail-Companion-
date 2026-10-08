@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Trail Companion — Offline Nature ID with Open-Source AI</title>
+  <meta name="description" content="Identify leaves, birds, flowers, fungi and bugs on the trail with zero signal. 100% on-device open-weight AI that gets you off the screen." />
+  <meta name="theme-color" content="#15803d" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true"></div>
+
+  <!-- ── Top Navigation Bar ── -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand-link" href="#home" aria-label="Trail Companion Home">
+        <img src="icons/icon.svg" alt="" width="36" height="36" />
+        <span>Trail<b>Companion</b></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#home" id="nav-home" class="active"><span>🏡</span> Home</a></li>
+          <li class="nav-item"><a href="#scanner" id="nav-scanner"><span>📷</span> Field Scanner</a></li>
+          <li class="nav-item"><a href="#guide" id="nav-guide"><span>📖</span> Field Guide</a></li>
+          <li class="nav-item"><a href="#walk" id="nav-walk"><span>🥾</span> Walk Mode</a></li>
+          <li class="nav-item"><a href="#journal" id="nav-journal"><span>📓</span> Journal</a></li>
+          <li class="nav-item"><a href="#settings" id="nav-settings"><span>⚙️</span> Studio</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="model-pill" class="model-pill" type="button" aria-live="polite">
+          <span class="dot"></span>
+          <span id="model-pill-text">Model not downloaded</span>
+        </button>
+        <a href="#scanner" class="btn btn-primary btn-sm">Launch Scanner</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <!-- ═══════════════════════════════════════════════════════
+         1. LANDING PAGE VIEW (#home)
+    ═══════════════════════════════════════════════════════ -->
+    <section id="view-home" class="view-section active">
+      <div class="landing-hero">
+        <div class="landing-badge">
+          <span class="badge-green">🍃 Touch Grass · Open-Source AI Challenge</span>
+        </div>
+        <h1 class="landing-title">Get off the screen.<br />Explore the wild with <em>Open-Weight AI</em>.</h1>
+        <p class="landing-subtitle">
+          Identify leaves, songbirds, wildflowers, mushrooms, and bugs on the trail with <b>zero cellular signal</b>. 
+          Trail Companion runs an open-weight foundation model right in your browser, keeping your photos private while rewarding the time you spend with your phone in your pocket.
+        </p>
+        <div class="landing-cta-group">
+          <a href="#scanner" class="btn btn-primary btn-lg">📷 Start Field Scanner</a>
+          <a href="#guide" class="btn btn-secondary btn-lg">📖 Browse 76+ Species</a>
+          <a href="#walk" class="btn btn-outline btn-lg">🥾 Start Screen-Free Walk</a>
+        </div>
+      </div>
+
+      <!-- Stat Metrics Strip -->
+      <div class="stats-strip">
+        <div class="stat-box">
+          <div class="stat-val">76+</div>
+          <div class="stat-label">Native Species Cataloged</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">~140ms</div>
+          <div class="stat-label">On-Device Inference Speed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">Offline (Airplane Mode Ready)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">0 kb</div>
+          <div class="stat-label">Private Location/Photo Leaks</div>
+        </div>
+      </div>
+
+      <!-- Bento Grid: Key Pillars -->
+      <div class="bento-grid">
+        <div class="bento-item bento-span-2">
+          <div class="bento-icon">⚡</div>
+          <h3>Autonomous On-Device Vision</h3>
+          <p>
+            Powered by open-weight <b>CLIP ViT-B/16</b> quantized to int8 via Transformers.js and ONNX Runtime Web. 
+            Your camera photos never leave your device. Download the weights once on Wi-Fi (~87 MB), and identify flora and fauna deep in the backcountry with zero cell towers.
+          </p>
+        </div>
+
+        <div class="bento-item">
+          <div class="bento-icon">🥾</div>
+          <h3>Screen-Free Walk Meter</h3>
+          <p>
+            We don't want you glued to your glass screen. Our Walk Mode measures how much of your outdoor time was spent <b>off-screen</b>, encouraging you to pocket the phone and observe nature directly.
+          </p>
+        </div>
+
+        <div class="bento-item">
+          <div class="bento-icon">📵</div>
+          <h3>"That's Not Grass" Rejection</h3>
+          <p>
+            Point your camera at a laptop or indoor desk, and the model's zero-shot negative bank flags it immediately, reminding you to close the laptop and step into the sunlight.
+          </p>
+        </div>
+
+        <div class="bento-item">
+          <div class="bento-icon">🎶</div>
+          <h3>Synthesized Birdsong Audio</h3>
+          <p>
+            Hear authentic whistling calls and forest wind rustles generated entirely offline with the Web Audio API. Perfect for learning to recognize birds by their songs on the trail.
+          </p>
+        </div>
+
+        <div class="bento-item">
+          <div class="bento-icon">🔬</div>
+          <h3>Zero-Shot Extensible</h3>
+          <p>
+            Encounter a rare endemic plant not in the guide? Type its name in our Studio. The open text model computes fresh embeddings on-device in seconds without any retraining.
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Scan Teaser -->
+      <div class="white-card" style="text-align: center; border-color: var(--border-green);">
+        <h2 style="margin-bottom: 8px;">Ready to test it right now?</h2>
+        <p style="margin-bottom: 24px;">Try one of our 6 instant field test photographs or snap an item near your window.</p>
+        <a href="#scanner" class="btn btn-primary">Open Field Scanner Workstation →</a>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         2. FIELD SCANNER VIEW (#scanner)
+    ═══════════════════════════════════════════════════════ -->
+    <section id="view-scanner" class="view-section">
+      <div style="margin-bottom: 24px;">
+        <h2>Field Scanner Workstation</h2>
+        <p>Capture live camera photos or choose a picture to identify on-device with zero signal.</p>
+      </div>
+
+      <div class="scanner-grid">
+        <!-- Left: Camera & Shutter Controls -->
+        <div class="scanner-left">
+          <div class="viewfinder-card">
+            <!-- Shutter Circle -->
+            <label for="photo-input" id="shutter" class="shutter-circle" role="button" tabindex="0" aria-label="Take or choose a photo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3 7.2 5H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.2L15 3H9Zm3 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+            </label>
+            <input id="photo-input" type="file" accept="image/*" capture="environment" hidden />
+            
+            <p style="font-weight: 600; color: var(--text-main); margin-bottom: 4px;">Tap shutter to select or snap a photo</p>
+            <p class="small" style="margin-bottom: 16px;">100% processed locally on your phone</p>
+
+            <button id="btn-toggle-cam" class="btn btn-secondary btn-sm" type="button">📹 Open Live Camera Viewfinder</button>
+
+            <!-- Live Viewfinder HUD (Collapsible) -->
+            <div id="live-cam-box" class="live-stream-box" hidden>
+              <video id="live-video" playsinline autoplay muted></video>
+              <div class="camera-reticle"></div>
+              <div class="camera-actions-bar">
+                <button id="btn-flip-cam" class="btn btn-secondary btn-sm" type="button">🔄 Flip</button>
+                <button id="btn-snap-live" class="btn btn-primary btn-sm" type="button">📸 Capture Frame</button>
+                <button id="btn-close-cam" class="btn btn-outline btn-sm" type="button" style="background:#fff;">✕ Close</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample Photo Test Deck -->
+          <div class="sample-gallery white-card" style="padding: 20px;">
+            <div class="sample-gallery-title">Instant Sample Photo Test Deck</div>
+            <div class="sample-grid">
+              <button class="sample-thumb-card sample" type="button" id="sample-maple" data-src="samples/maple-leaf.jpg">🍁 Maple Leaf</button>
+              <button class="sample-thumb-card sample" type="button" id="sample-cardinal" data-src="samples/cardinal.jpg">🐦 Cardinal</button>
+              <button class="sample-thumb-card sample" type="button" id="sample-agaric" data-src="samples/fly-agaric.jpg">🍄 Fly Agaric</button>
+              <button class="sample-thumb-card sample" type="button" id="sample-monarch" data-src="samples/monarch.jpg">🦋 Monarch</button>
+              <button class="sample-thumb-card sample" type="button" id="sample-sunflower" data-src="samples/sunflower.jpg">🌻 Sunflower</button>
+              <button class="sample-thumb-card sample sample-neg" type="button" id="sample-screen" data-src="samples/laptop-desk.jpg">💻 Desk (Test Anti-Screen)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Status / Results Container -->
+        <div class="scanner-right">
+          <!-- First Run Download Banner -->
+          <div id="first-run" class="white-card" style="border-color: var(--border-green); margin-bottom: 20px;" hidden>
+            <h3>Get Trail-Ready</h3>
+            <p style="margin: 8px 0 16px;">Download the open-weight <b>CLIP ViT-B/16</b> vision model (~87 MB) once to your browser storage. Works completely offline afterwards.</p>
+            <button id="btn-download" class="btn btn-primary btn-sm" type="button">Download Model for Offline Use</button>
+          </div>
+
+          <!-- Progress Card -->
+          <div id="progress-card" class="white-card" style="margin-bottom: 20px;" hidden>
+            <div style="display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px;">
+              <span id="progress-label">Downloading model…</span>
+              <span id="progress-pct">0%</span>
+            </div>
+            <div class="confidence-bar-wrap">
+              <div id="progress-bar" class="confidence-bar-fill" style="width: 0%;"></div>
+            </div>
+            <p class="small" style="margin-top: 6px;">Cached permanently on device. You only download this once.</p>
+          </div>
+
+          <!-- Result Card -->
+          <article id="result" class="result-card" hidden aria-live="polite">
+            <div class="result-photo-wrap">
+              <img id="result-img" alt="Captured observation" />
+              <div id="scanning" class="result-scan-overlay">
+                <div style="font-weight: 600; font-size: 1.1rem;">⚡ Running On-Device Inference…</div>
+                <div class="small">Open-weight CLIP ONNX WebAssembly</div>
+              </div>
+            </div>
+
+            <div id="result-body" class="result-details" hidden>
+              <div class="result-meta-row">
+                <span id="result-cat" class="badge-green"></span>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <button id="btn-sound" class="btn btn-secondary btn-sm" type="button">🔊 Hear Call</button>
+                  <span id="result-meta" class="small" style="color: var(--text-muted);"></span>
+                </div>
+              </div>
+
+              <div>
+                <h2 id="result-name" class="species-title"></h2>
+                <p id="result-sci" class="species-scientific"></p>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600;">
+                  <span>Confidence Score</span>
+                  <span id="result-conf"></span>
+                </div>
+                <div class="confidence-bar-wrap">
+                  <div id="result-conf-bar" class="confidence-bar-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <div id="result-warn" class="white-card" style="background:#fee2e2; border-color:#fca5a5; color:#991b1b; padding:14px;" hidden></div>
+
+              <p id="result-fact" style="color: var(--text-main); font-size: 0.95rem;"></p>
+
+              <div class="outdoor-cue-box">
+                <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--primary);">Outdoor Trail Cue 👀</div>
+                <p id="result-next" style="margin-top: 4px; color: var(--text-main); font-size: 0.9rem;"></p>
+              </div>
+
+              <details style="margin-top: 4px;">
+                <summary style="cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--text-muted);">Alternative possibilities</summary>
+                <ul id="result-alts" style="list-style: none; margin-top: 8px; display: grid; gap: 6px;"></ul>
+              </details>
+
+              <div style="display: flex; gap: 12px; margin-top: 8px;">
+                <button id="btn-save" class="btn btn-primary" type="button" style="flex: 1;">Save to Journal</button>
+                <button id="btn-again" class="btn btn-secondary" type="button">New Scan</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         3. FIELD GUIDE VIEW (#guide)
+    ═══════════════════════════════════════════════════════ -->
+    <section id="view-guide" class="view-section">
+      <div class="guide-header">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <h2>Native Field Guide</h2>
+            <p>Searchable biodiversity taxonomy pre-loaded for offline identification.</p>
+          </div>
+          <span id="guide-count" class="badge-green">76 Species</span>
+        </div>
+
+        <div class="guide-search-box">
+          <span class="guide-search-icon">🔍</span>
+          <input type="search" id="guide-search" class="guide-search-input" placeholder="Search by common name, Latin binomial, or key traits..." />
+        </div>
+
+        <div class="guide-category-filters">
+          <button class="chip filter-chip active" data-cat="all">All Species</button>
+          <button class="chip filter-chip" data-cat="bird">🐦 Birds</button>
+          <button class="chip filter-chip" data-cat="tree">🍁 Trees &amp; Leaves</button>
+          <button class="chip filter-chip" data-cat="flower">🌼 Flowers</button>
+          <button class="chip filter-chip" data-cat="fungi">🍄 Fungi</button>
+          <button class="chip filter-chip" data-cat="insect">🐞 Bugs &amp; Critters</button>
+        </div>
+      </div>
+
+      <div id="guide-list" class="guide-cards-grid"></div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         4. WALK MODE & TOUCH GRASS (#walk)
+    ═══════════════════════════════════════════════════════ -->
+    <section id="view-walk" class="view-section">
+      <div style="margin-bottom: 24px;">
+        <h2>Walk Mode &amp; Screen-Off Tracker</h2>
+        <p>Start a hike, then pocket your phone. We calculate your percentage of screen-free time.</p>
+      </div>
+
+      <div class="walk-dashboard-grid">
+        <!-- Walk Ring Meter -->
+        <div class="white-card offscreen-meter-card">
+          <div class="meter-svg-wrap">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="meter-track" cx="60" cy="60" r="52" />
+              <circle id="offscreen-ring" class="meter-progress" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7" />
+            </svg>
+            <div class="meter-center-text">
+              <span id="offscreen-pct" class="meter-pct">—</span>
+              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);">Off-Screen</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 32px; margin: 16px 0 24px; text-align: center;">
+            <div>
+              <div id="walk-time" style="font-size: 1.5rem; font-weight: 800; color: var(--text-main);">00:00</div>
+              <div class="small">Time Outside</div>
+            </div>
+            <div>
+              <div id="walk-finds" style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">0</div>
+              <div class="small">Species Logged</div>
+            </div>
+            <div>
+              <div id="walk-screen" style="font-size: 1.5rem; font-weight: 800; color: var(--text-muted);">0:00</div>
+              <div class="small">Screen Time</div>
+            </div>
+          </div>
+
+          <button id="btn-walk" class="btn btn-primary btn-lg" type="button" style="width: 100%;">Start Outdoor Walk</button>
+        </div>
+
+        <!-- Right Side: Daily Trail Bingo -->
+        <div class="white-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <h3>Daily Trail Bingo</h3>
+            <span id="bingo-count" class="badge-green">0 / 9</span>
+          </div>
+          <p class="small">Today's observations automatically mark tiles off the board.</p>
+          <div id="bingo" class="bingo-board"></div>
+        </div>
+      </div>
+
+      <!-- Trail Badges Shelf -->
+      <div class="white-card" style="margin-top: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h3>Trail Badges &amp; Milestones</h3>
+            <p class="small">Celebrate real-world outdoor exploration.</p>
+          </div>
+          <span id="badge-count" class="badge-green">0 / 8 Unlocked</span>
+        </div>
+        <div id="badge-grid" class="badges-container-grid"></div>
+      </div>
+
+      <!-- Past Walks -->
+      <div class="white-card" style="margin-top: 28px;">
+        <h3>Recent Outdoor Walks</h3>
+        <ul id="walk-list" style="list-style: none; margin-top: 12px; display: grid; gap: 8px;">
+          <li style="color: var(--text-muted); font-size: 0.95rem;">No walks recorded yet. Step outside!</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         5. FIELD JOURNAL & NATURE PASSPORT (#journal)
+    ═══════════════════════════════════════════════════════ -->
+    <section id="view-journal" class="view-section">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h2>Field Journal</h2>
+          <p>Your local nature observations, stored 100% on your device with zero cloud tracking.</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button id="btn-passport" class="btn btn-primary btn-sm" type="button">🎨 Nature Passport (PNG)</button>
+          <button id="btn-export" class="btn btn-secondary btn-sm" type="button">Export GeoJSON</button>
+        </div>
+      </div>
+
+      <div class="journal-stats-bar">
+        <div>
+          <span id="j-species" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">0</span>
+          <div class="small">Unique Species</div>
+        </div>
+        <div>
+          <span id="j-finds" style="font-size: 1.8rem; font-weight: 800; color: var(--text-main);">0</span>
+          <div class="small">Total Observations</div>
+        </div>
+        <div>
+          <span id="j-cats" style="font-size: 1.8rem; font-weight: 800; color: var(--accent-emerald);">0/5</span>
+          <div class="small">Kingdom Groups</div>
+        </div>
+      </div>
+
+      <div style="margin: 16px 0;">
+        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500;">
+          <input type="checkbox" id="geo-toggle" style="width: 18px; height: 18px; accent-color: var(--primary);" />
+          <span>Tag finds with offline GPS coordinates (stored only in this browser)</span>
+        </label>
+      </div>
+
+      <div id="journal-grid" class="journal-finds-grid"></div>
+      <p id="journal-empty" style="text-align: center; color: var(--text-muted); margin: 60px 0;">
+        Your journal is currently empty. Point your scanner at a leaf, flower, or songbird to log your first find! 🌱
+      </p>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         6. MODEL STUDIO & SETTINGS (#settings)
+    ═══════════════════════════════════════════════════════ -->
+    <section id="view-settings" class="view-section">
+      <div style="margin-bottom: 24px;">
+        <h2>Model Studio &amp; Runtime Settings</h2>
+        <p>Inspect the open-weight model runtime or teach new species on-device without retraining.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <!-- Specifications -->
+        <div class="white-card">
+          <h3>Runtime Specifications</h3>
+          <dl style="display: grid; grid-template-columns: 110px 1fr; gap: 12px; margin-top: 16px; font-size: 0.9rem;">
+            <dt style="color: var(--text-muted); font-weight: 500;">Model</dt>
+            <dd>CLIP ViT-B/16 (open weights, ONNX int8, 87 MB)</dd>
+
+            <dt style="color: var(--text-muted); font-weight: 500;">Runtime</dt>
+            <dd>Transformers.js v4 + ONNX Runtime Web</dd>
+
+            <dt style="color: var(--text-muted); font-weight: 500;">Device</dt>
+            <dd id="spec-device">—</dd>
+
+            <dt style="color: var(--text-muted); font-weight: 500;">Taxonomy</dt>
+            <dd id="spec-labels">—</dd>
+
+            <dt style="color: var(--text-muted); font-weight: 500;">Network</dt>
+            <dd id="spec-net">—</dd>
+          </dl>
+        </div>
+
+        <!-- Teach a Species -->
+        <div class="white-card">
+          <h3>Teach a Local Species</h3>
+          <p class="small" style="margin: 8px 0 16px;">
+            Zero-shot expansion: Type any plant or wildlife common name. The open-weight text encoder computes fresh vectors directly in this browser.
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <input id="teach-name" type="text" placeholder="e.g. Jacaranda, Painted Stork" style="flex: 1; padding: 10px 16px; border: 1px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-sans);" />
+            <select id="teach-cat" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius-md); font-family: var(--font-sans);">
+              <option value="tree">Tree</option>
+              <option value="flower">Flower</option>
+              <option value="bird">Bird</option>
+              <option value="fungi">Fungi</option>
+              <option value="insect">Bug</option>
+            </select>
+            <button id="btn-teach" class="btn btn-primary btn-sm" type="button">Teach</button>
+          </div>
+          <ul id="custom-list" style="list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;"></ul>
+        </div>
+      </div>
+
+      <!-- Local Storage Management -->
+      <div class="white-card" style="margin-top: 24px;">
+        <h3>Privacy &amp; Data Control</h3>
+        <p class="small" style="margin: 6px 0 16px;">All observation photos, GPS coordinates, and walks are stored strictly within IndexedDB on this device.</p>
+        <button id="btn-clear" class="btn btn-secondary btn-sm" type="button" style="color: var(--danger) !important; border-color: var(--danger-light);">
+          🗑️ Clear All Local Data
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Nature Passport Canvas Modal -->
+  <dialog id="passport-dialog" class="clean-modal">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h2 style="font-size: 1.4rem;">Your Nature Field Passport</h2>
+      <button id="btn-close-passport" style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--text-muted);">✕</button>
+    </div>
+    <p class="small" style="margin-bottom: 16px;">Rendered 100% on-device to HTML5 Canvas. Export your outdoor record as a high-resolution PNG.</p>
+    <div style="border-radius: var(--radius-lg); overflow: hidden; background: #000; box-shadow: var(--shadow-md);">
+      <canvas id="passport-canvas" width="800" height="1000" style="width: 100%; height: auto; display: block;"></canvas>
+    </div>
+    <div style="margin-top: 20px;">
+      <button id="btn-download-passport" class="btn btn-primary" style="width: 100%;">💾 Download Passport (PNG)</button>
+    </div>
+  </dialog>
+
+  <!-- Nudge and Toast -->
+  <div id="nudge" class="toast-msg" style="background: var(--primary); top: 90px; bottom: auto; left: 50%; transform: translateX(-50%);" hidden>
+    🌿 You've been staring at the screen. Pocket it and look up!
+  </div>
+  <div id="toast" class="toast-msg" role="status" hidden></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

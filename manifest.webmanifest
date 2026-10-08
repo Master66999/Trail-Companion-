@@ -1,0 +1,15 @@
+{
+  "name": "Trail Companion — Offline Nature ID",
+  "short_name": "Trail Companion",
+  "description": "Identify leaves, birds, flowers, fungi and bugs on the trail with zero signal. Open-weight AI, 100% on-device.",
+  "start_url": "./#identify",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1510",
+  "theme_color": "#0b1510",
+  "categories": ["education", "lifestyle", "health"],
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

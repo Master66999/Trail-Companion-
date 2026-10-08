@@ -1,0 +1,16 @@
+{
+  "name": "trail-companion",
+  "version": "1.0.0",
+  "description": "Offline nature identifier PWA powered by open-weight CLIP running in your browser.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "embeddings": "node scripts/build-embeddings.mjs",
+    "dev": "npx -y http-server . -p 5173 -c-1",
+    "test:classify": "node scripts/test-classify.mjs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@huggingface/transformers": "^4.3.0"
+  }
+}
