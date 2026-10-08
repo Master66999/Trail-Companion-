@@ -2,7 +2,7 @@
 title: Trail Companion — An Offline PWA for Nature Exploration Powered by Open-Weight AI
 published: false
 tags: devchallenge, hf26challenge, opensource, webdev
-cover_image: https://raw.githubusercontent.com/Master66999/Trail-Companion-/main/icons/icon.svg
+cover_image: https://raw.githubusercontent.com/Master66999/Trail-Companion-/main/cover.jpg
 ---
 
 *This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass](https://dev.to/challenges/hacktoberfest-week1-2026-10-05)*
